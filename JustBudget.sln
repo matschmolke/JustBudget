@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustBudget", "JustBudget\JustBudget.csproj", "{5EE66E02-308E-4804-A782-7F05E8082332}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EE66E02-308E-4804-A782-7F05E8082332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE66E02-308E-4804-A782-7F05E8082332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE66E02-308E-4804-A782-7F05E8082332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE66E02-308E-4804-A782-7F05E8082332}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C0FACC1-F6EF-4A13-ADA5-FAFC2E846866}
+	EndGlobalSection
+EndGlobal
