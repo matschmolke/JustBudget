@@ -12,34 +12,6 @@
         Background="#2A2D3E"
         Foreground="White"
         Icon="Resources/logo.png">
-    <Window.Resources>
-        <LinearGradientBrush x:Key="BudgetGradient" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#FF7B1FA2" Offset="0"/>
-            <GradientStop Color="#FFEC407A" Offset="1"/>
-        </LinearGradientBrush>
-        
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#4B4E69"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#494b59"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -52,7 +24,7 @@
                    Text="JustBudget" 
                    FontSize="28" FontWeight="Bold"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Foreground="LightGreen"/>
+                   Foreground="#a257c2"/>
         
         <TextBlock Grid.Row="1"
                    Text="Monthly Budget Summary" 
