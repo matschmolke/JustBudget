@@ -62,7 +62,7 @@
         </Border>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Transactions List"/>
+            <Button Content="Transactions List" Click="OpenTransactionsList"/>
             <Button Content="Add Transaction"/>
         </StackPanel>
     </Grid>

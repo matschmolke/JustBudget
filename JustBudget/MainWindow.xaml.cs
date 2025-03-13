@@ -20,4 +20,10 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void OpenTransactionsList(object sender, RoutedEventArgs e)
+    {
+        TransactionsWindow transactionsWindow = new TransactionsWindow();
+        transactionsWindow.Show();
+    }
 }
