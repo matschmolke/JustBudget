@@ -20,6 +20,9 @@ public partial class App : Application
         ConfigureServices(services);
         ServiceProvider = services.BuildServiceProvider();
 
+        var db = ServiceProvider.GetRequiredService<AppDbContext>();
+        DbInitializer.Initialize(db);
+
         var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
         mainWindow.Show();
     }

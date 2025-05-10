@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using JustBudget.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,14 +18,17 @@ namespace JustBudget;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    private readonly AppDbContext _context;
+
+    public MainWindow(AppDbContext context)
     {
         InitializeComponent();
+        _context = context;
     }
 
     private void OpenTransactionsList(object sender, RoutedEventArgs e)
     {
-        TransactionsWindow transactionsWindow = new TransactionsWindow();
-        transactionsWindow.Show();
+        var transactionsWindow = new TransactionsWindow(_context); // <-- przekazanie kontekstu
+        transactionsWindow.ShowDialog();
     }
 }
