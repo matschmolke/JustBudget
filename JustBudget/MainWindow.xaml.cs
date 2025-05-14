@@ -1,4 +1,5 @@
 ﻿using JustBudget.Data;
+using JustBudget.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Windows;
@@ -24,11 +25,46 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         _context = context;
+        LoadBudgetSummary();
     }
+    private void LoadBudgetSummary()
+    {
+        var transactions = _context.Transactions.ToList();
+
+        var income = transactions
+            .Where(t => t.TransactionType == TransactionType.Income)
+            .Sum(t => t.Amount);
+
+        var expenses = transactions
+            .Where(t => t.TransactionType == TransactionType.Expense)
+            .Sum(t => t.Amount);
+
+        var remaining = income - expenses;
+
+        IncomeText.Text = $"Income: {income}";
+        SpendingsText.Text = $"Spendings: {expenses}";
+        RemainingText.Text = $"Remaining Budget: {(remaining >= 0 ? "+" : "")}{remaining}";
+        RemainingText.Foreground = new SolidColorBrush(remaining >= 0 ? Colors.LightGreen : Colors.IndianRed);
+    }
+
+
 
     private void OpenTransactionsList(object sender, RoutedEventArgs e)
     {
         var transactionsWindow = new TransactionsWindow(_context); // <-- przekazanie kontekstu
         transactionsWindow.ShowDialog();
+    }
+
+    private void AddTransaction(object sender, RoutedEventArgs e)
+    {
+        var addWindow = new AddEditTransactionWindow(_context)
+        {
+            Owner = this
+        };
+
+        if (addWindow.ShowDialog() == true)
+        {
+            LoadBudgetSummary(); // odśwież dane po dodaniu
+        }
     }
 }

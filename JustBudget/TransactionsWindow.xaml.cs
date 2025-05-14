@@ -46,7 +46,30 @@ namespace JustBudget
 
         private void Add_Transaction(object sender, RoutedEventArgs e)
         {
+            var addWindow = new AddEditTransactionWindow(_context)
+            {
+                Owner = this
+            };
 
+            if (addWindow.ShowDialog() == true)
+            {
+                LoadTransactions(); // odśwież dane po dodaniu
+            }
+        }
+        private void TransactionsGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (TransactionsGrid.SelectedItem is Transaction selectedTransaction)
+            {
+                var editWindow = new AddEditTransactionWindow(_context, selectedTransaction)
+                {
+                    Owner = this
+                };
+
+                if (editWindow.ShowDialog() == true)
+                {
+                    LoadTransactions(); // odśwież dane
+                }
+            }
         }
     }
 }

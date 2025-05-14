@@ -39,13 +39,13 @@
                 Padding="20">
             <StackPanel VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock Text="Income: 5000 PLN" 
+                    <TextBlock x:Name="IncomeText" Text="Income: 5000 PLN" 
                            FontSize="18" FontWeight="Bold"
                            Foreground="White"
                            Margin="20"
                            HorizontalAlignment="Center"/>
-                
-                <TextBlock Text="Spendings: 3000 PLN" 
+
+                    <TextBlock  x:Name="SpendingsText" Text="Spendings: 3000 PLN" 
                            FontSize="18" FontWeight="Bold"
                            Foreground="White"
                            Margin="20"
@@ -54,7 +54,7 @@
                 
                 <Rectangle Height="10" Fill="Transparent"/>
 
-                <TextBlock Text="Remaining Budget: +2000 PLN" 
+                <TextBlock x:Name="RemainingText" Text="Remaining Budget: +2000 PLN" 
                            FontSize="20" FontWeight="Bold"
                            Foreground="LightGreen"
                            HorizontalAlignment="Center"/>
@@ -63,7 +63,7 @@
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Transactions List" Click="OpenTransactionsList"/>
-            <Button Content="Add Transaction"/>
+            <Button Content="Add Transaction" Click="AddTransaction"/>
         </StackPanel>
     </Grid>
 </Window>

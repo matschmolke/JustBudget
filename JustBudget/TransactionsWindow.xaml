@@ -21,6 +21,7 @@
 
         <DataGrid x:Name="TransactionsGrid"
           AutoGenerateColumns="False"
+          MouseDoubleClick="TransactionsGrid_MouseDoubleClick"
           HeadersVisibility="Column"
           Background="#4B4E69"
           Foreground="White"
