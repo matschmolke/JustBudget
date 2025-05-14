@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JustBudget"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
         Title="JustBudget" 
         Height="450" 
         Width="800"
@@ -16,21 +18,66 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
             <RowDefinition Height="150"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
+        
+        <Menu Background="#2A2D3E" Foreground="White">
+            <MenuItem Header="Settings">
+                <MenuItem Header="Font Size">
+                    <MenuItem Header="Small" Click="SetFontSmall"/>
+                    <MenuItem Header="Medium" Click="SetFontMedium"/>
+                    <MenuItem Header="Large" Click="SetFontLarge"/>
+                </MenuItem>
+
+                <MenuItem Header="Month Filter">
+                    <MenuItem Header="January" Click="SetMonthFilter" Tag="1"/>
+                    <MenuItem Header="February" Click="SetMonthFilter" Tag="2"/>
+                    <MenuItem Header="March" Click="SetMonthFilter" Tag="3"/>
+                    <MenuItem Header="April" Click="SetMonthFilter" Tag="4"/>
+                    <MenuItem Header="May" Click="SetMonthFilter" Tag="5"/>
+                    <MenuItem Header="June" Click="SetMonthFilter" Tag="6"/>
+                    <MenuItem Header="July" Click="SetMonthFilter" Tag="7"/>
+                    <MenuItem Header="August" Click="SetMonthFilter" Tag="8"/>
+                    <MenuItem Header="September" Click="SetMonthFilter" Tag="9"/>
+                    <MenuItem Header="October" Click="SetMonthFilter" Tag="10"/>
+                    <MenuItem Header="November" Click="SetMonthFilter" Tag="10"/>
+                    <MenuItem Header="December" Click="SetMonthFilter" Tag="11"/>
+                    <MenuItem Header="All" Click="SetMonthFilter" Tag="0"/>
+                </MenuItem>
+
+                <MenuItem Header="Year Filter">
+                    <MenuItem Header="2023" Click="SetYearFilter" Tag="2023"/>
+                    <MenuItem Header="2024" Click="SetYearFilter" Tag="2024"/>
+                    <MenuItem Header="2025" Click="SetYearFilter" Tag="2025"/>
+                    <MenuItem Header="2026" Click="SetYearFilter" Tag="2026"/>
+                    <MenuItem Header="2027" Click="SetYearFilter" Tag="2027"/>
+                    <MenuItem Header="2028" Click="SetYearFilter" Tag="2028"/>
+                    <MenuItem Header="2029" Click="SetYearFilter" Tag="2029"/>
+                    <MenuItem Header="2030" Click="SetYearFilter" Tag="2030"/>
+                    <MenuItem Header="All" Click="SetYearFilter" Tag="0"/>
+                </MenuItem>
+
+                <MenuItem Header="Reset Filters" Click="ResetFilters"/>
+                <MenuItem Header="Clear All Data" Click="ClearAllData"/>
+            </MenuItem>
+        </Menu>
+
         <TextBlock Grid.Row="0"
-                   Text="JustBudget" 
-                   FontSize="28" FontWeight="Bold"
+                   Text="JustBudget"
+                   FontSize="{DynamicResource TitleBaseFontSize}"
+                   FontWeight="Bold"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
                    Foreground="#a257c2"/>
         
         <TextBlock Grid.Row="1"
-                   Text="Monthly Budget Summary" 
-                   FontSize="20" FontWeight="SemiBold"
+                   Text="Monthly Budget Summary"
+                   FontSize="{DynamicResource HeaderBaseFontSize}"
+                   FontWeight="SemiBold"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Foreground="White"/>
+                   Foreground="White"
+                   x:Name="SummaryTitle"/>
         
         <Border Grid.Row="2" 
                 Background="{DynamicResource BudgetGradient}"
@@ -40,13 +87,13 @@
             <StackPanel VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock x:Name="IncomeText" Text="Income: 5000 PLN" 
-                           FontSize="18" FontWeight="Bold"
+                           FontSize="{DynamicResource HeaderBaseFontSize}" FontWeight="Bold"
                            Foreground="White"
                            Margin="20"
                            HorizontalAlignment="Center"/>
 
                     <TextBlock  x:Name="SpendingsText" Text="Spendings: 3000 PLN" 
-                           FontSize="18" FontWeight="Bold"
+                           FontSize="{DynamicResource HeaderBaseFontSize}" FontWeight="Bold"
                            Foreground="White"
                            Margin="20"
                            HorizontalAlignment="Center"/>
@@ -55,7 +102,7 @@
                 <Rectangle Height="10" Fill="Transparent"/>
 
                 <TextBlock x:Name="RemainingText" Text="Remaining Budget: +2000 PLN" 
-                           FontSize="20" FontWeight="Bold"
+                           FontSize="{DynamicResource HeaderBaseFontSize}" FontWeight="Bold"
                            Foreground="LightGreen"
                            HorizontalAlignment="Center"/>
             </StackPanel>
@@ -64,6 +111,7 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Transactions List" Click="OpenTransactionsList"/>
             <Button Content="Add Transaction" Click="AddTransaction"/>
+            <Button Content="Refresh" Click="UpdateButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

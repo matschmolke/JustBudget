@@ -35,5 +35,21 @@ public partial class App : Application
         services.AddSingleton<MainWindow>();
         services.AddTransient<TransactionsWindow>();
     }
+
+    public static class FontManager
+    {
+        public static void SetScale(double multiplier)
+        {
+            Application.Current.Resources["FontScale"] = multiplier;
+
+            double title = 28 * multiplier;
+            double header = 20 * multiplier;
+            double normal = 14 * multiplier;
+
+            Application.Current.Resources["TitleBaseFontSize"] = title;
+            Application.Current.Resources["HeaderBaseFontSize"] = header;
+            Application.Current.Resources["NormalBaseFontSize"] = normal;
+        }
+    }
 }
 

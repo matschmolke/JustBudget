@@ -21,7 +21,8 @@ namespace JustBudget.Data
                 new Transaction { Name = "Rent", Amount = 1500, TransactionType = TransactionType.Expense, Date = DateTime.Today.AddDays(-10) },
             };
 
-            context.Transactions.AddRange(transactions);
+            //Uncomment if you want to add this default data above
+            //context.Transactions.AddRange(transactions);
             context.SaveChanges();
         }
     }

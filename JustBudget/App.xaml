@@ -1,12 +1,55 @@
 ﻿<Application x:Class="JustBudget.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:JustBudget">
     <Application.Resources>
         <LinearGradientBrush x:Key="BudgetGradient" StartPoint="0,0" EndPoint="1,0">
             <GradientStop Color="#4432a8" Offset="0"/>
             <GradientStop Color="#7B1FA2" Offset="1"/>
         </LinearGradientBrush>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
+        </Style>
+
+
+        <Style TargetType="Control">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
+        </Style>
+
+        <System:Double x:Key="FontScale">1.0</System:Double>
+
+        <System:Double x:Key="TitleBaseFontSize">28</System:Double>
+        <System:Double x:Key="HeaderBaseFontSize">20</System:Double>
+        <System:Double x:Key="NormalBaseFontSize">14</System:Double>
+        
+        <Style TargetType="Menu">
+            <Setter Property="Background" Value="#2A2D3E"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style TargetType="MenuItem">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#2A2D3E"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Style.Triggers>
+                <Trigger Property="IsHighlighted" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+                <Trigger Property="IsSubmenuOpen" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="Gray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
 
         <Style TargetType="ComboBox">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -80,6 +123,7 @@
 
 
         <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
             <Setter Property="Background" Value="#4B4E69"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="5"/>
@@ -89,6 +133,7 @@
         </Style>
 
         <Style TargetType="DatePickerTextBox">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
             <Setter Property="Background" Value="#4B4E69"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -97,6 +142,7 @@
             <Setter Property="Background" Value="#4B4E69"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Margin" Value="10"/>
@@ -140,7 +186,7 @@
         <Style TargetType="DataGridRow">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="#857DCE"/>
@@ -159,7 +205,7 @@
             <Setter Property="Foreground" Value="LightGray"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="{DynamicResource HeaderBaseFontSize}" />
             <Setter Property="Cursor" Value="Hand"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -167,6 +213,15 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="DataGridCell">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
+        </Style>
+
 
     </Application.Resources>
 </Application>

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JustBudget"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
         Title="TransactionsWindow" 
         Height="450" 
         Width="800"
@@ -53,12 +55,20 @@
                 Margin="10"
                 Width="100"
                 Click="Close_Window"/>
-        
+
+        <TextBlock Text="💡 Double-click a row to edit a transaction"
+           Grid.Row="1"
+           HorizontalAlignment="Center"
+           FontStyle="Italic"
+           Foreground="Gray"
+           Margin="0,20,0,10"
+           FontSize="{DynamicResource NormalBaseFontSize}"/>
+
         <Button Content="Add Transaction"
         Grid.Row="1"
         HorizontalAlignment="Left"
         Margin="10"
-        Width="100"
+        Width="150"
         Click="Add_Transaction"/>
     </Grid>
 </Window>

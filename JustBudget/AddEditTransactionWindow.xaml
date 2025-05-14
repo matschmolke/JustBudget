@@ -2,7 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="Add/Edit Transaction" Height="450" Width="400"
+        Title="Add/Edit Transaction" Height="550" Width="400"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
         WindowStartupLocation="CenterOwner"
         Background="#2A2D3E" Foreground="White">
     <Grid Margin="20">
