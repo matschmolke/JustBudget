@@ -41,20 +41,20 @@
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
             <Button Content="Delete"
-            Width="100"
-            Background="IndianRed" Foreground="White"
-            Click="Delete_Click"
-            Visibility="{Binding IsDeleteVisible, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                    Width="100"
+                    Background="IndianRed" Foreground="White"
+                    Click="Delete_Click"
+                    Visibility="{Binding IsDeleteVisible, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
             <Button Content="Close"
-            Width="100"
-            Background="#4B4E69" Foreground="White"
-            Click="Back_Click"/>
+                    Width="100"
+                    Background="#4B4E69" Foreground="White"
+                    Click="Back_Click"/>
 
             <Button Content="Save"
-            Width="100"
-            Background="#7B1FA2" Foreground="White" FontWeight="Bold"
-            Click="SaveTransaction_Click"/>
+                    Width="100"
+                    Background="#7B1FA2" Foreground="White" FontWeight="Bold"
+                    Click="SaveTransaction_Click"/>
         </StackPanel>
     </Grid>
 </Window>

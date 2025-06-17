@@ -65,36 +65,39 @@
                     <ControlTemplate TargetType="ComboBox">
                         <Grid>
                             <ToggleButton Name="ToggleButton"
-                                  Background="{TemplateBinding Background}"
-                                  Foreground="{TemplateBinding Foreground}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="1"
-                                  Focusable="False"
-                                  IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                  ClickMode="Press">
+                                          Background="{TemplateBinding Background}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="1"
+                                          Focusable="False"
+                                          IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press">
                                 <StackPanel Orientation="Horizontal" Margin="4,0">
                                     <ContentPresenter VerticalAlignment="Center" />
-                                    <Path Margin="10,0,0,0" Width="12" Height="6" Stretch="Uniform"
+                                    <Path Margin="10,0,0,0" 
+                                          Width="12" 
+                                          Height="6" 
+                                          Stretch="Uniform"
                                           Fill="White"
                                           Data="M 0 0 L 4 4 L 8 0 Z"
                                           VerticalAlignment="Center" />
                                 </StackPanel>
                             </ToggleButton>
                             <Popup Name="Popup"
-                           Placement="Bottom"
-                           IsOpen="{TemplateBinding IsDropDownOpen}"
-                           AllowsTransparency="True"
-                           Focusable="False"
-                           PopupAnimation="Slide">
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
                                 <Grid Name="DropDown"
-                              SnapsToDevicePixels="True"
-                              MinWidth="{TemplateBinding ActualWidth}"
-                              MaxHeight="200"
-                              Background="#2A2D3E">
+                                      SnapsToDevicePixels="True"
+                                      MinWidth="{TemplateBinding ActualWidth}"
+                                      MaxHeight="200"
+                                      Background="#2A2D3E">
                                     <ScrollViewer Margin="4,6,4,6"
-                                          SnapsToDevicePixels="True">
+                                                  SnapsToDevicePixels="True">
                                         <StackPanel IsItemsHost="True"
-                                            KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                    KeyboardNavigation.DirectionalNavigation="Contained"/>
                                     </ScrollViewer>
                                 </Grid>
                             </Popup>
