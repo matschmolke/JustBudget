@@ -222,6 +222,5 @@
             <Setter Property="FontSize" Value="{DynamicResource NormalBaseFontSize}" />
         </Style>
 
-
     </Application.Resources>
 </Application>

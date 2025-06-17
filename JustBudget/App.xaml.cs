@@ -30,7 +30,7 @@ public partial class App : Application
     private void ConfigureServices(IServiceCollection services)
     {
         services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlite("Data Source=budget.db")); // lub pełna ścieżka
+            options.UseSqlite("Data Source=budget.db"));
 
         services.AddSingleton<MainWindow>();
         services.AddTransient<TransactionsWindow>();

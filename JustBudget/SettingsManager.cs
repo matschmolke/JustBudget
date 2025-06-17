@@ -9,7 +9,9 @@ public static class SettingsManager
     public static AppSettings Load()
     {
         if (!File.Exists(path))
+        {
             return new AppSettings();
+        }
 
         var json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<AppSettings>(json);

@@ -11,8 +11,8 @@ namespace JustBudget
     {
         private readonly AppDbContext _context;
         private readonly Transaction _transactionToEdit;
-        public Visibility IsDeleteVisible => _transactionToEdit != null ? Visibility.Visible : Visibility.Collapsed;
 
+        public Visibility IsDeleteVisible => _transactionToEdit != null ? Visibility.Visible : Visibility.Collapsed;
 
         public AddEditTransactionWindow(AppDbContext context)
         {
@@ -20,11 +20,9 @@ namespace JustBudget
             _context = context;
             DatePicker.SelectedDate = DateTime.Today;
         }
-        public AddEditTransactionWindow(AppDbContext context, Transaction transactionToEdit)
-            : this(context)
+        public AddEditTransactionWindow(AppDbContext context, Transaction transactionToEdit) : this(context)
         {
             _transactionToEdit = transactionToEdit;
-
             NameBox.Text = transactionToEdit.Name;
             AmountBox.Text = transactionToEdit.Amount.ToString();
             DatePicker.SelectedDate = transactionToEdit.Date;
@@ -41,9 +39,7 @@ namespace JustBudget
                 return;
             }
 
-            var type = ((ComboBoxItem)TypeBox.SelectedItem).Content.ToString() == "Income"
-      ? TransactionType.Income
-      : TransactionType.Expense;
+            var type = ((ComboBoxItem)TypeBox.SelectedItem).Content.ToString() == "Income" ? TransactionType.Income : TransactionType.Expense;
 
             if (_transactionToEdit != null)
             {
@@ -56,7 +52,6 @@ namespace JustBudget
             }
             else
             {
-                // Dodawanie nowej transakcji
                 var transaction = new Transaction
                 {
                     Name = NameBox.Text,
@@ -96,6 +91,5 @@ namespace JustBudget
                 }
             }
         }
-
     }
 }

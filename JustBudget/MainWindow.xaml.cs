@@ -39,10 +39,14 @@ public partial class MainWindow : Window
         var transactions = _context.Transactions.ToList();
 
         if (_settings.FilterMonth != 0)
+        {
             transactions = transactions.Where(t => t.Date.Month == _settings.FilterMonth).ToList();
+        }
 
         if (_settings.FilterYear != 0)
+        {
             transactions = transactions.Where(t => t.Date.Year == _settings.FilterYear).ToList();
+        }
 
         var income = transactions
             .Where(t => t.TransactionType == TransactionType.Income)
@@ -62,7 +66,7 @@ public partial class MainWindow : Window
 
     private void OpenTransactionsList(object sender, RoutedEventArgs e)
     {
-        var transactionsWindow = new TransactionsWindow(_context); // <-- przekazanie kontekstu
+        var transactionsWindow = new TransactionsWindow(_context);
         transactionsWindow.ShowDialog();
     }
 
@@ -75,27 +79,29 @@ public partial class MainWindow : Window
 
         if (addWindow.ShowDialog() == true)
         {
-            LoadBudgetSummary(); // odśwież dane po dodaniu
+            LoadBudgetSummary();
         }
     }
 
     private void UpdateSummaryTitle()
     {
         string monthText = _settings.FilterMonth == 0
-            ? "All Months"
-            : new DateTime(2000, _settings.FilterMonth, 1).ToString("MMMM", CultureInfo.InvariantCulture);
+            ? "All Months" : new DateTime(2000, _settings.FilterMonth, 1).ToString("MMMM", CultureInfo.InvariantCulture);
 
 
         string yearText = _settings.FilterYear == 0
-            ? ""
-            : _settings.FilterYear.ToString();
+            ? "" : _settings.FilterYear.ToString();
 
         string title = "Budget Summary – ";
 
         if (_settings.FilterMonth == 0 && _settings.FilterYear == 0)
+        {
             title += "All Time";
+        }
         else
+        {
             title += $"{monthText} {yearText}".Trim();
+        }
 
         SummaryTitle.Text = title;
     }

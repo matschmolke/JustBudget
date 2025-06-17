@@ -53,7 +53,7 @@ namespace JustBudget
 
             if (addWindow.ShowDialog() == true)
             {
-                LoadTransactions(); // odśwież dane po dodaniu
+                LoadTransactions();
             }
         }
         private void TransactionsGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -67,7 +67,7 @@ namespace JustBudget
 
                 if (editWindow.ShowDialog() == true)
                 {
-                    LoadTransactions(); // odśwież dane
+                    LoadTransactions();
                 }
             }
         }
